@@ -48,7 +48,7 @@ title VARCHAR(50)
 
 CREATE TABLE Lab_Events (
 event_id char(7) PRIMARY KEY,
-section_code char(4),
+section_code char(4) REFERENCES set NOT NULL,
 course_code CHAR(8) REFERENCES set NOT NULL,
 term_code INTEGER(6) REFERENCES set NOT NULL,
 lab_number INTEGER(2) REFERENCES set NOT NULL,
