@@ -12,8 +12,10 @@ DROP TABLE IF EXISTS Term CASCADE;
 CREATE TABLE Course (
     course_code CHAR(8) PRIMARY KEY,
     title VARCHAR(50) NOT NULL,
-    credits INTEGER NOT NULL
+    credits INTEGER NOT NULL,
 
+    --Constraints
+    CONSTRAINT course_credits_chk CHECK (credits > 0)
 );
 
 CREATE TABLE Set (
