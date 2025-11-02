@@ -50,3 +50,10 @@ CREATE TABLE Section (
     location VARCHAR(50)
 );
 
+CREATE TABLE Lab_Assignments (
+assignment_id CHAR(6) PRIMARY KEY,
+course_code CHAR(8) REFERENCES Course NOT NULL,
+term_code VARCHAR(10) REFERENCES Term,
+lab_number CHAR(2),
+title VARCHAR(50)
+);
