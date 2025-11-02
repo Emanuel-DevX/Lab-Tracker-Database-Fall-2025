@@ -1,5 +1,5 @@
 # Lab-Tracker-Database-Fall-2025-
-by Jimmy Cho, Emanuel Molla, Anthony Herradura
+by Jimmy Cho, Emanuel Molla, Anthony Herradura, Allen Rosales
 
 ## The database keeps track of:
 ### - Course
