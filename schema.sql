@@ -47,6 +47,7 @@ CREATE TABLE Section (
     section_code VARCHAR(20) PRIMARY KEY,
     course_code CHAR(8) NOT NULL REFERENCES Course(course_code),
     term_code VARCHAR(10) REFERENCES Term(term_code),
+    set_code    CHAR(1) REFERENCES Set(set_code),
     type VARCHAR(10) CHECK (type IN ('Lab')),
     day_of_week VARCHAR(10),
     start_time TIME,
