@@ -6,6 +6,7 @@ SET search_path TO lab_tracker_group_16;
 
 DROP TABLE IF EXISTS Course CASCADE;
 DROP TABLE IF EXISTS Set CASCADE;
+DROP TABLE IF EXISTS Student CASCADE;
 
 CREATE TABLE Course (
     course_code CHAR(8) PRIMARY KEY,
@@ -18,3 +19,13 @@ CREATE TABLE Set (
     set_code CHAR(1) PRIMARY KEY,
     campus VARCHAR(50) NOT NULL
 );
+
+CREATE TABLE Student (
+    student_id CHAR(9) PRIMARY KEY,
+    set_code CHAR(1) REFERENCES Set NOT NULL,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(50)
+
+);
+
