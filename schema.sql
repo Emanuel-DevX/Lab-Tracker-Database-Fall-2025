@@ -38,7 +38,7 @@ CREATE TABLE Term (
 
 );
 
-CREATE TABLE lab_assignments (
+CREATE TABLE Lab_Assignments (
 assignment_id CHAR(6) PRIMARY KEY,
 course_code CHAR(8) REFERENCES set NOT NULL,
 term_code INTEGER(6),
