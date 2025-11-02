@@ -38,10 +38,22 @@ CREATE TABLE Term (
 
 );
 
-CREATE TABLE lab_assignments (
+CREATE TABLE Lab_Assignments (
 assignment_id CHAR(6) PRIMARY KEY,
 course_code CHAR(8) REFERENCES set NOT NULL,
-term_code INTEGER(6),
-lab_number INTEGER(2),
+term_code INTEGER(6) REFERENCES set NOT NULL,
+lab_number INTEGER(2) REFERENCES set NOT NULL,
 title VARCHAR(50)
+);
+
+CREATE TABLE Lab_Events (
+event_id char(7) PRIMARY KEY,
+section_code char(4),
+course_code CHAR(8) REFERENCES set NOT NULL,
+term_code INTEGER(6) REFERENCES set NOT NULL,
+lab_number INTEGER(2) REFERENCES set NOT NULL,
+start_datetime DATETIME,
+end_datetime DATETIME,
+due_datetime DATETIME,
+location VARCHAR(50)
 );
