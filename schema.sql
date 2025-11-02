@@ -29,9 +29,9 @@ CREATE TABLE Set (
 CREATE TABLE Student (
     student_id CHAR(9) PRIMARY KEY,
     set_code CHAR(1) REFERENCES Set NOT NULL,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    email VARCHAR(50)
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL
 
 );
 
@@ -57,9 +57,9 @@ CREATE TABLE Section (
 CREATE TABLE lab_assignments (
 assignment_id CHAR(6) PRIMARY KEY,
 course_code CHAR(8) REFERENCES set NOT NULL,
-term_code INTEGER(6),
-lab_number INTEGER(2),
-title VARCHAR(50)
+term_code INTEGER(6) REFERENCES set NOT NULL,
+lab_number INTEGER(2) REFERENCES set NOT NULL,
+title VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Lab_Events (
@@ -71,5 +71,5 @@ lab_number INTEGER(2) REFERENCES set NOT NULL,
 start_datetime DATETIME,
 end_datetime DATETIME,
 due_datetime DATETIME,
-location VARCHAR(50)
+location VARCHAR(50) NOT NULL
 );
