@@ -7,6 +7,7 @@ SET search_path TO lab_tracker_group_16;
 DROP TABLE IF EXISTS Course CASCADE;
 DROP TABLE IF EXISTS Set CASCADE;
 DROP TABLE IF EXISTS Student CASCADE;
+DROP TABLE IF EXISTS Term CASCADE;
 
 CREATE TABLE Course (
     course_code CHAR(8) PRIMARY KEY,
@@ -26,6 +27,14 @@ CREATE TABLE Student (
     first_name VARCHAR(50),
     last_name VARCHAR(50),
     email VARCHAR(50)
+
+);
+
+CREATE TABLE Term (
+    term_code INTEGER PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL
 
 );
 
