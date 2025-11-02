@@ -29,3 +29,10 @@ CREATE TABLE Student (
 
 );
 
+CREATE TABLE lab_assignments (
+assignment_id CHAR(6) PRIMARY KEY,
+course_code CHAR(8) REFERENCES set NOT NULL,
+term_code INTEGER(6),
+lab_number INTEGER(2),
+title VARCHAR(50)
+);
