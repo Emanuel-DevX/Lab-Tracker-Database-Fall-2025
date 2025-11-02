@@ -12,4 +12,3 @@ CREATE TABLE Course (
     credits INTEGER NOT NULL
 
 );
-
