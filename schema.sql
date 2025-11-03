@@ -93,7 +93,7 @@ CREATE TABLE progress (
     student_id               CHAR(9) NOT NULL REFERENCES student(student_id),
     event_id                 CHAR(7) NOT NULL REFERENCES lab_event(event_id),
     lab_number               CHAR(2) NOT NULL REFERENCES lab_assignment(lab_number),
-    status                   VARCHAR(20) CHECK (status IN ('Submitted', 'In progress', 'Missing')),
+    status                   VARCHAR(20) CHECK (status IN ('Submitted', 'In Progress', 'Missing')),
     prepared                 BOOLEAN,
     attendance               VARCHAR(20) CHECK (attendance IN ('Present', 'Absent', 'Late')),
     inlab_submitted_at       TIMESTAMP,
