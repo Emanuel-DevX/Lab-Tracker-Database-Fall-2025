@@ -42,7 +42,7 @@ CREATE TABLE student (
     set_code CHAR(1) NOT NULL REFERENCES set(set_code),
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL
+    email VARCHAR(50) NOT NULL,
     
     --Constraints
     CONSTRAINT unique_email_chk UNIQUE(email)
