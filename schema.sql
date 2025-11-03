@@ -79,8 +79,8 @@ CREATE TABLE lab_event (
 
 CREATE TABLE Progress (
     progress_id              VARCHAR(20) PRIMARY KEY,
-    student_id               CHAR(9) NOT NULL REFERENCES Student(student_id),
-    event_id                 CHAR(7) NOT NULL REFERENCES Lab_Event(event_id),
+    student_id               CHAR(9) NOT NULL REFERENCES student(student_id),
+    event_id                 CHAR(7) NOT NULL REFERENCES lab_event(event_id),
     lab_number               CHAR(2) NOT NULL REFERENCES lab_assignment(lab_number),
     status                   VARCHAR(20) CHECK (status IN ('Submitted', 'In Progress', 'Missing')),
     prepared                 BOOLEAN,
@@ -94,4 +94,15 @@ CREATE TABLE Progress (
     late                     BOOLEAN,
 
     CONSTRAINT student_event UNIQUE (student_id, event_id),
+);
+
+CREATE TABLE Progress_Change_Log (
+    change_id CHAR(5) PRIMARY KEY,          
+    progress_id CHAR(20)  NOT NULL REFERENCES progress(progress_id),          
+    changed_by VARCHAR(50) NOT NULL,        
+    changed_at TIMESTAMP NOT NULL,        
+    field VARCHAR(50) NOT NULL,             
+    old_value VARCHAR(100),                 
+    new_value VARCHAR(100),                
+    reason VARCHAR(255)                      
 );
