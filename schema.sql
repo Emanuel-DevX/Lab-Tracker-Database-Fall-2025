@@ -9,7 +9,8 @@ DROP TABLE IF EXISTS Set CASCADE;
 DROP TABLE IF EXISTS Student CASCADE;
 DROP TABLE IF EXISTS Term CASCADE;
 DROP TABLE IF EXISTS Section CASCADE;
-DROP TABLE IF EXISTS Lab_Assignments CASCADE;
+DROP TABLE IF EXISTS lab_Assignment CASCADE;
+DROP TABLE IF EXISTS lab_event CASCADE;
 
 
 CREATE TABLE Course (
@@ -54,22 +55,24 @@ CREATE TABLE Section (
     location VARCHAR(50)
 );
 
-CREATE TABLE lab_assignments (
+CREATE TABLE lab_assignment (
 assignment_id CHAR(6) PRIMARY KEY,
 course_code CHAR(8) REFERENCES set NOT NULL,
-term_code INTEGER(6),
-lab_number INTEGER(2),
+term_code VARCHAR(10),
+lab_number CHAR(2) UNIQUE NOT NULL,
 title VARCHAR(50)
 );
 
-CREATE TABLE Lab_Events (
-event_id char(7) PRIMARY KEY,
-section_code char(4) REFERENCES set NOT NULL,
-course_code CHAR(8) REFERENCES set NOT NULL,
-term_code INTEGER(6) REFERENCES set NOT NULL,
-lab_number INTEGER(2) REFERENCES set NOT NULL,
-start_datetime DATETIME,
-end_datetime DATETIME,
-due_datetime DATETIME,
-location VARCHAR(50)
+
+CREATE TABLE lab_event (
+    event_id CHAR(7) PRIMARY KEY,
+    section_code VARCHAR(20) NOT NULL REFERENCES section(section_code),
+    course_code CHAR(8) NOT NULL REFERENCES course(course_code),
+    term_code VARCHAR(10) NOT NULL REFERENCES term(term_code),
+    lab_number CHAR(2) NOT NULL REFERENCES lab_assignment(lab_number),
+    start_datetime TIMESTAMP,
+    end_datetime TIMESTAMP,
+    due_datetime TIMESTAMP,
+    location VARCHAR(50)
 );
+
