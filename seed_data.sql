@@ -21,6 +21,27 @@ INSERT INTO "user" (user_id, display_name, role, email) VALUES
 ('u_ta1', 'Daniel Saavedra', 'ta', 'dsaavedra@bcit.ca'),
 ('u_system', 'Lab Tracker System', 'system', 'noreply@labtracker.local');
 
+-- Insert user records for students (supertype of student)
+INSERT INTO "user" (user_id, display_name, role, email) VALUES
+('A001', 'Ava Nguyen', 'student', 'ava.nguyen@my.bcit.ca'),
+('A002', 'Noah Kim', 'student', 'noah.kim@my.bcit.ca'),
+('A003', 'Oliver Singh', 'student', 'oliver.singh@my.bcit.ca'),
+('B001', 'Maya Fischer', 'student', 'maya.fischer@my.bcit.ca'),
+('B002', 'Leo Park', 'student', 'leo.park@my.bcit.ca'),
+('B003', 'Zoé Martin', 'student', 'zoe.martin@my.bcit.ca'),
+('C001', 'Sofia Chen', 'student', 'sofia.chen@my.bcit.ca'),
+('C002', 'Arjun Patel', 'student', 'arjun.patel@my.bcit.ca'),
+('C003', 'Liam O''Reilly', 'student', 'liam.oreilly@my.bcit.ca'),
+('D001', 'Layla Haddad', 'student', 'layla.haddad@my.bcit.ca'),
+('D002', 'Ethan Wong', 'student', 'ethan.wong@my.bcit.ca'),
+('D003', 'Nora Iverson', 'student', 'nora.iverson@my.bcit.ca'),
+('E001', 'Diego Alvarez', 'student', 'diego.alvarez@my.bcit.ca'),
+('E002', 'Hana Yamamoto', 'student', 'hana.yamamoto@my.bcit.ca'),
+('E003', 'Farah Rahimi', 'student', 'farah.rahimi@my.bcit.ca'),
+('F001', 'Marco Russo', 'student', 'marco.russo@my.bcit.ca'),
+('F002', 'Amir Kazemi', 'student', 'amir.kazemi@my.bcit.ca'),
+('F003', 'Chloe Dubois', 'student', 'chloe.dubois@my.bcit.ca');
+
 -- Insert available courses
 INSERT INTO course (course_code, title, credits) VALUES
 ('COMP2714','Relational Database Systems',3);

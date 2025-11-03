@@ -18,11 +18,11 @@ DROP TABLE IF EXISTS "user" CASCADE;
 CREATE TABLE "user"(
     user_id VARCHAR(20) PRIMARY KEY,
     display_name VARCHAR(50),
-    role VARCHAR(50) CHECK(role IN ('instructor', 'system', 'ta')),
+    role VARCHAR(50) CHECK(role IN ('instructor', 'system', 'ta', 'student')),
     email VARCHAR(50),
      
         --Constraints
-    CONSTRAINT unique_st_email_chk UNIQUE(email)
+    CONSTRAINT unique_email_chk UNIQUE(email)
 
 );
 
@@ -41,14 +41,15 @@ CREATE TABLE set (
 );
 
 CREATE TABLE student (
-    student_id CHAR(9) PRIMARY KEY,
+
+    student_id CHAR(20) PRIMARY KEY REFERENCES "user"(user_id) ON DELETE CASCADE,
     set_code CHAR(1) NOT NULL REFERENCES set(set_code),
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     
     --Constraints
-    CONSTRAINT unique_email_chk UNIQUE(email)
+    CONSTRAINT unique_st_email_chk UNIQUE(email)
 );
 
 CREATE TABLE term (
@@ -95,7 +96,7 @@ CREATE TABLE lab_event (
 
 CREATE TABLE progress (
     progress_id              VARCHAR(20) PRIMARY KEY,
-    student_id               CHAR(9) NOT NULL REFERENCES student(student_id),
+    student_id               CHAR(20) NOT NULL REFERENCES student(student_id),
     event_id                 CHAR(7) NOT NULL REFERENCES lab_event(event_id),
     lab_number               CHAR(2) NOT NULL REFERENCES lab_assignment(lab_number),
     status                   VARCHAR(20) CHECK (status IN ('Submitted', 'In Progress', 'Missing')),
