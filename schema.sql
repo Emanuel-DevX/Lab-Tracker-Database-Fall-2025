@@ -29,7 +29,7 @@ CREATE TABLE set (
 
 CREATE TABLE student (
     student_id CHAR(9) PRIMARY KEY,
-    set_code CHAR(1) REFERENCES set NOT NULL,
+    set_code CHAR(1) NOT NULL REFERENCES set(set_code),
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL
@@ -47,7 +47,7 @@ CREATE TABLE term (
 CREATE TABLE section (
     section_code VARCHAR(20) PRIMARY KEY,
     course_code CHAR(8) NOT NULL REFERENCES course(course_code),
-    term_code VARCHAR(10) REFERENCES term(term_code),
+    term_code VARCHAR(10) REFERENCES term(term_code)(term_code),
     set_code    CHAR(1) REFERENCES set(set_code),
     type VARCHAR(10) CHECK (type IN ('Lab')),
     day_of_week VARCHAR(10),
@@ -58,8 +58,8 @@ CREATE TABLE section (
 
 CREATE TABLE lab_assignment (
 assignment_id CHAR(6) PRIMARY KEY,
-course_code CHAR(8) REFERENCES set NOT NULL,
-term_code VARCHAR(10),
+course_code CHAR(8) NOT NULL REFERENCES course(course_code),
+term_code VARCHAR(10) REFERENCES term(term_code),
 lab_number CHAR(2) UNIQUE NOT NULL,
 title VARCHAR(50)
 );
@@ -69,7 +69,7 @@ CREATE TABLE lab_event (
     event_id CHAR(7) PRIMARY KEY,
     section_code VARCHAR(20) NOT NULL REFERENCES section(section_code),
     course_code CHAR(8) NOT NULL REFERENCES course(course_code),
-    term_code VARCHAR(10) NOT NULL REFERENCES term(term_code),
+    term_code VARCHAR(10) NOT NULL REFERENCES term(term_code)(term_code),
     lab_number CHAR(2) NOT NULL REFERENCES lab_assignment(lab_number),
     start_datetime TIMESTAMP,
     end_datetime TIMESTAMP,
@@ -100,7 +100,7 @@ CREATE TABLE progress_change_log (
     change_id CHAR(5) PRIMARY KEY,          
     progress_id CHAR(20)  NOT NULL REFERENCES progress(progress_id),          
     changed_by VARCHAR(50) NOT NULL,        
-    changed_at TIMESTAMP NOT NULL,        
+    changed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,        
     field VARCHAR(50) NOT NULL,             
     old_value VARCHAR(100),                 
     new_value VARCHAR(100),                
