@@ -15,6 +15,11 @@ TRUNCATE TABLE
     "user"
 CASCADE;
 
+INSERT INTO "user" (user_id, display_name, role, email) VALUES
+('u_instructor', 'Maryam Khezrzadeh', 'instructor', 'mkhezrzadeh@bcit.ca'),
+('u_ta1', 'Daniel Saavedra', 'ta', 'dsaavedra@bcit.ca'),
+('u_system', 'Lab Tracker System', 'system', 'noreply@labtracker.local');
+
 INSERT INTO course (course_code, title, credits) VALUES
 ('COMP2714','Relational Database Systems',3);
 
