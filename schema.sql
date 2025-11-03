@@ -77,3 +77,21 @@ CREATE TABLE lab_event (
     location VARCHAR(50)
 );
 
+CREATE TABLE Progress (
+    progress_id              VARCHAR(20) PRIMARY KEY,
+    student_id               CHAR(9) NOT NULL REFERENCES Student(student_id),
+    event_id                 CHAR(7) NOT NULL REFERENCES Lab_Event(event_id),
+    lab_number               CHAR(2) NOT NULL REFERENCES lab_assignment(lab_number),
+    status                   VARCHAR(20) CHECK (status IN ('Submitted', 'In Progress', 'Missing')),
+    prepared                 BOOLEAN,
+    attendance               VARCHAR(20) CHECK (attendance IN ('Present', 'Absent', 'Late')),
+    inlab_submitted_at       TIMESTAMP,
+    inlab_submission_link    VARCHAR(255),
+    polished_submitted_at    TIMESTAMP,
+    polished_submission_link VARCHAR(255),
+    instructor_assessment    DECIMAL(4,2),
+    self_assessment          DECIMAL(4,2),
+    late                     BOOLEAN,
+
+    CONSTRAINT student_event UNIQUE (student_id, event_id),
+);
