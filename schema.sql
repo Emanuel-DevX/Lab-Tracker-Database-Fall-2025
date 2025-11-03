@@ -30,9 +30,9 @@ CREATE TABLE Set (
 CREATE TABLE Student (
     student_id CHAR(9) PRIMARY KEY,
     set_code CHAR(1) REFERENCES Set NOT NULL,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    email VARCHAR(50)
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL
 
 );
 
@@ -48,6 +48,7 @@ CREATE TABLE Section (
     section_code VARCHAR(20) PRIMARY KEY,
     course_code CHAR(8) NOT NULL REFERENCES Course(course_code),
     term_code VARCHAR(10) REFERENCES Term(term_code),
+    set_code    CHAR(1) REFERENCES Set(set_code),
     type VARCHAR(10) CHECK (type IN ('Lab')),
     day_of_week VARCHAR(10),
     start_time TIME,
