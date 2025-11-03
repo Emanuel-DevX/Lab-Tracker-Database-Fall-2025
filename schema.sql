@@ -22,7 +22,7 @@ CREATE TABLE "user"(
     email                       VARCHAR(50) NOT NULL,
     role                        VARCHAR(50) NOT NULL,
 
-    CONSTRAINT unique_email_chk UNIQUE(email)
+    CONSTRAINT unique_email_chk UNIQUE(email),
     CONSTRAINT user_role_chk CHECK (role IN ('instructor', 'system', 'ta', 'student'))
 );
 
@@ -65,7 +65,7 @@ CREATE TABLE section (
     day_of_week                 VARCHAR(10),
     start_time                  TIME,
     end_time                    TIME,
-    location                    VARCHAR(50)
+    location                    VARCHAR(50),
 
 
     FOREIGN KEY (course_code) REFERENCES course(course_code),
