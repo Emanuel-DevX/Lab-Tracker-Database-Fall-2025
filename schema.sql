@@ -96,18 +96,7 @@ CREATE TABLE progress (
     CONSTRAINT student_event UNIQUE (student_id, event_id)
 );
 
-CREATE TABLE Progress_Change_Log (
-    change_id CHAR(5) PRIMARY KEY,          
-    progress_id CHAR(20)  NOT NULL REFERENCES progress(progress_id),          
-    changed_by VARCHAR(50) NOT NULL,        
-    changed_at TIMESTAMP NOT NULL,        
-    field VARCHAR(50) NOT NULL,             
-    old_value VARCHAR(100),                 
-    new_value VARCHAR(100),                
-    reason VARCHAR(255)                      
-);
-
-CREATE TABLE Progress_Change_Log (
+CREATE TABLE progress_change_log (
     change_id CHAR(5) PRIMARY KEY,          
     progress_id CHAR(20)  NOT NULL REFERENCES progress(progress_id),          
     changed_by VARCHAR(50) NOT NULL,        
