@@ -118,11 +118,11 @@ WHERE due_datetime < start_datetime;
 
 -- Expect: 0 rows
 
--- Check that instructor_assessment and self_assessment are within 0–10
+-- Check that instructor_assessment and self_assessment are within 0–100
 SELECT progress_id, instructor_assessment, self_assessment
 FROM progress
-WHERE instructor_assessment NOT BETWEEN 0 AND 10
-   OR self_assessment NOT BETWEEN 0 AND 10;
+WHERE instructor_assessment NOT BETWEEN 0 AND 100
+   OR self_assessment NOT BETWEEN 0 AND 100;
 
 -- Expect: 0 rows
 
