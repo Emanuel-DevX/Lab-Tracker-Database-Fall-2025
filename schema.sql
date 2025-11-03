@@ -107,13 +107,13 @@ CREATE TABLE progress (
 );
 
 CREATE TABLE progress_change_log (
-    change_id CHAR(5) PRIMARY KEY,          
-    progress_id CHAR(20)  NOT NULL REFERENCES progress(progress_id),          
-    changed_by VARCHAR(20) NOT NULL REFERENCES "user"(user_id),        
-    changed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,        
-    field VARCHAR(50) NOT NULL,             
-    old_value VARCHAR(100),                 
-    new_value VARCHAR(100),                
-    reason VARCHAR(255)                      
+    change_id CHAR(5) PRIMARY KEY,
+    progress_id VARCHAR(20)  NOT NULL REFERENCES progress(progress_id),
+    changed_by VARCHAR(20) NOT NULL REFERENCES "user"(user_id),
+    changed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    field VARCHAR(50) NOT NULL,
+    old_value VARCHAR(100),
+    new_value VARCHAR(100),
+    reason VARCHAR(255)
 );
 
