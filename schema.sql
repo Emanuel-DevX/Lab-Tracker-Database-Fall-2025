@@ -71,7 +71,7 @@ CREATE TABLE lab_assignment (
     course_code CHAR(8) NOT NULL REFERENCES course(course_code),
     term_code VARCHAR(10) REFERENCES term(term_code),
     lab_number CHAR(2) UNIQUE NOT NULL,
-    title VARCHAR(50)
+    title VARCHAR(50),
     CONSTRAINT unique_lab UNIQUE (course_code, term_code, lab_number)
 );
 
