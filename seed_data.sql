@@ -1,6 +1,5 @@
 SET search_path TO lab_tracker_group_16;
 
-
 -- Clear existing data in all tables (in dependency order)
 TRUNCATE TABLE
     progress_change_log,
@@ -42,7 +41,6 @@ INSERT INTO "user" (user_id, first_name, last_name, email, role) VALUES
 ('F002', 'Amir', 'Kazemi', 'amir.kazemi@my.bcit.ca', 'student'),
 ('F003', 'Chloe', 'Dubois', 'chloe.dubois@my.bcit.ca', 'student');
 
-
 -- Insert available courses
 INSERT INTO course (course_code, title, credits) VALUES
 ('COMP2714','Relational Database Systems',3);
@@ -83,10 +81,11 @@ INSERT INTO student (student_id, set_code) VALUES
 ('F002', 'F'),
 ('F003', 'F');
 
-
 -- Insert available sections
-INSERT INTO section 
-(section_code, course_code, term_code, set_code, type, day_of_week, start_time, end_time, location) VALUES
+INSERT INTO section(
+    section_code, course_code, term_code, set_code,
+    type, day_of_week, start_time, end_time, location
+) VALUES
 ('L01', 'COMP2714', '202530', 'A', 'LAB', 'Mon', '09:30', '11:20', 'BBY-SW01-3460'),
 ('L02', 'COMP2714', '202530', 'B', 'LAB', 'Mon', '13:30', '15:20', 'BBY-SW01-3465'),
 ('L03', 'COMP2714', '202530', 'C', 'LAB', 'Tue', '18:30', '20:20', 'BBY-SW03-2605'),
@@ -94,9 +93,10 @@ INSERT INTO section
 ('L05', 'COMP2714', '202530', 'E', 'LAB', 'Wed', '13:30', '15:20', 'DTC-310'),
 ('L06', 'COMP2714', '202530', 'F', 'LAB', 'Thu', '18:30', '20:20', 'DTC-318');
 
--- Insert lab assignments 
-INSERT INTO lab_assignment
-(assignment_id, course_code, term_code, lab_number, title) VALUES
+-- Insert lab assignments
+INSERT INTO lab_assignment(
+    assignment_id, course_code, term_code, lab_number, title
+) VALUES
 ('LAB01', 'COMP2714', '202530', '1', 'Environment Setup & Intro SQL'),
 ('LAB02', 'COMP2714', '202530', '2', 'Conceptual → Logical Mapping'),
 ('LAB03', 'COMP2714', '202530', '3', 'Logical ERD & Constraints'),
@@ -132,8 +132,8 @@ INSERT INTO lab_event (
 
 -- Insert student progress
 INSERT INTO progress (
-    progress_id, student_id, event_id, lab_number, status, prepared, 
-    attendance, inlab_submitted_at, inlab_submission_link, polished_submitted_at, 
+    progress_id, student_id, event_id, lab_number, status, prepared,
+    attendance, inlab_submitted_at, inlab_submission_link, polished_submitted_at,
     polished_submission_link, instructor_assessment, self_assessment, late
 ) VALUES
 ('A001-L01-L01','A001','L01-L01','1','Submitted',TRUE,'Present','2025-09-08 10:45','https://submit.bcit.ca/comp2714/inlab/A001-L01-L01.pdf','2025-09-09 12:45','https://submit.bcit.ca/comp2714/polished/A001-L01-L01.pdf',8.5,8.2,FALSE),
@@ -173,11 +173,8 @@ INSERT INTO progress (
 ('F003-L06-L01','F003','L06-L01','1','Submitted',TRUE,'Present','2025-09-12 19:45','https://submit.bcit.ca/comp2714/inlab/F003-L06-L01.pdf','2025-09-13 21:45','https://submit.bcit.ca/comp2714/polished/F003-L06-L01.pdf',8.5,8.2,FALSE),
 ('F003-L06-L02','F003','L06-L02','2','Submitted',FALSE,'Present','2025-09-19 19:35','https://submit.bcit.ca/comp2714/inlab/F003-L06-L02.pdf','2025-09-21 20:35','https://submit.bcit.ca/comp2714/polished/F003-L06-L02.pdf',7.0,6.7,FALSE);
 
-
 -- Insert student progress change logs
 INSERT INTO progress_change_log (change_id, progress_id, changed_by, changed_at, field, old_value, new_value, reason) VALUES
 ('chg1', 'A001-L01-L01', 'u_instructor', '2025-09-09 12:10', 'instructor_assessment', '8.0', '8.5', 'Regraded after resubmission'),
-
 ('chg2', 'A003-L01-L02', 'u_ta1', '2025-09-16 20:45', 'status', 'In progress', 'Submitted', 'Student submitted during lab; TA marked as submitted'),
-
 ('chg3', 'B003-L02-L01', 'u_system', '2025-09-23 23:59', 'late', 'False', 'True', 'Auto-flagged after set-specific due time');

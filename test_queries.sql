@@ -103,7 +103,7 @@ SELECT DISTINCT attendance FROM progress;
 -------------------------------------------------------------------
 
 -- Check duplicate student emails (should be unique)
-SELECT email, COUNT(*) 
+SELECT email, COUNT(*)
 FROM student s
 JOIn "user" u ON u.user_id = s.student_id
 GROUP BY email
