@@ -4,13 +4,16 @@ set search_path TO lab_tracker_group_16;
 
 --Drop tables before definition
 
-DROP TABLE IF EXISTS course CASCADE;
-DROP TABLE IF EXISTS set CASCADE;
-DROP TABLE IF EXISTS student CASCADE;
-DROP TABLE IF EXISTS term CASCADE;
-DROP TABLE IF EXISTS Section CASCADE;
-DROP TABLE IF EXISTS lab_Assignment CASCADE;
+DROP TABLE IF EXISTS progress_change_log CASCADE;
+DROP TABLE IF EXISTS progress CASCADE;
 DROP TABLE IF EXISTS lab_event CASCADE;
+DROP TABLE IF EXISTS lab_assignment CASCADE;
+DROP TABLE IF EXISTS section CASCADE;
+DROP TABLE IF EXISTS student CASCADE;
+DROP TABLE IF EXISTS set CASCADE;
+DROP TABLE IF EXISTS term CASCADE;
+DROP TABLE IF EXISTS course CASCADE;
+DROP TABLE IF EXISTS "user" CASCADE;
 
 
 CREATE TABLE course (
@@ -105,4 +108,12 @@ CREATE TABLE progress_change_log (
     old_value VARCHAR(100),                 
     new_value VARCHAR(100),                
     reason VARCHAR(255)                      
+);
+
+CREATE TABLE "user"(
+    user_id VARCHAR(20) PRIMARY KEY,
+    display_name VARCHAR(50),
+    role VARCHAR(50) CHECK(role IN ('instructor', 'system', 'ta')),
+    email VARCHAR(50)
+
 );
