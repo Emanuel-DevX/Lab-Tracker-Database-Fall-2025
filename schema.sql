@@ -17,9 +17,10 @@ DROP TABLE IF EXISTS "user" CASCADE;
 
 CREATE TABLE "user"(
     user_id VARCHAR(20) PRIMARY KEY,
-    display_name VARCHAR(50),
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     role VARCHAR(50) CHECK(role IN ('instructor', 'system', 'ta', 'student')),
-    email VARCHAR(50),
      
         --Constraints
     CONSTRAINT unique_email_chk UNIQUE(email)
@@ -44,12 +45,7 @@ CREATE TABLE student (
 
     student_id CHAR(20) PRIMARY KEY REFERENCES "user"(user_id) ON DELETE CASCADE,
     set_code CHAR(1) NOT NULL REFERENCES set(set_code),
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    
-    --Constraints
-    CONSTRAINT unique_st_email_chk UNIQUE(email)
+
 );
 
 CREATE TABLE term (
