@@ -24,5 +24,13 @@ INSERT INTO term (term_code, name, start_date, end_date) VALUES
 ('202520', 'Spring/Summer 2025', '2025-04-28', '2025-08-08'),
 ('202530', 'Fall 2025', '2025-09-02', '2025-12-12');
 
-SELECT * FROM term;
 
+INSERT INTO set(set_code, campus) VALUES
+('A', 'Burnaby'),
+('B', 'Burnaby'),
+('C', 'Burnaby'),
+('D', 'Burnaby'),
+('E', 'Downtown'),
+('F', 'Downtown');
+
+SELECT * FROM set;
