@@ -60,11 +60,22 @@ INSERT INTO student (student_id, set_code, first_name, last_name, email) VALUES
 ('F003', 'F', 'Chloe', 'Dubois', 'chloe.dubois@my.bcit.ca');
 
 INSERT INTO section 
-(section_code, course_code, term_code, set_code, type, day_of_week, start_time, end_time, location) 
-VALUES
+(section_code, course_code, term_code, set_code, type, day_of_week, start_time, end_time, location) VALUES
 ('L01', 'COMP2714', '202530', 'A', 'LAB', 'Mon', '09:30', '11:20', 'BBY-SW01-3460'),
 ('L02', 'COMP2714', '202530', 'B', 'LAB', 'Mon', '13:30', '15:20', 'BBY-SW01-3465'),
 ('L03', 'COMP2714', '202530', 'C', 'LAB', 'Tue', '18:30', '20:20', 'BBY-SW03-2605'),
 ('L04', 'COMP2714', '202530', 'D', 'LAB', 'Wed', '09:30', '11:20', 'BBY-SE12-101'),
 ('L05', 'COMP2714', '202530', 'E', 'LAB', 'Wed', '13:30', '15:20', 'DTC-310'),
 ('L06', 'COMP2714', '202530', 'F', 'LAB', 'Thu', '18:30', '20:20', 'DTC-318');
+
+
+INSERT INTO lab_assignment
+(assignment_id, course_code, term_code, lab_number, title) VALUES
+('LAB01', 'COMP2714', '202530', '1', 'Environment Setup & Intro SQL'),
+('LAB02', 'COMP2714', '202530', '2', 'Conceptual → Logical Mapping'),
+('LAB03', 'COMP2714', '202530', '3', 'Logical ERD & Constraints'),
+('LAB04', 'COMP2714', '202530', '4', 'Normalization to 3NF'),
+('LAB05', 'COMP2714', '202530', '5', 'DDL Implementation'),
+('LAB06', 'COMP2714', '202530', '6', 'DML: INSERT/UPDATE/DELETE'),
+('LAB07', 'COMP2714', '202530', '7', 'SELECT & JOIN Practice'),
+('LAB08', 'COMP2714', '202530', '8', 'Views & Indexes');
