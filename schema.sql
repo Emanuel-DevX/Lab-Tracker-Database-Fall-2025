@@ -47,7 +47,7 @@ CREATE TABLE term (
 CREATE TABLE section (
     section_code VARCHAR(20) PRIMARY KEY,
     course_code CHAR(8) NOT NULL REFERENCES course(course_code),
-    term_code VARCHAR(10) REFERENCES term(term_code)(term_code),
+    term_code VARCHAR(10) REFERENCES term(term_code),
     set_code    CHAR(1) REFERENCES set(set_code),
     type VARCHAR(10) CHECK (type IN ('Lab')),
     day_of_week VARCHAR(10),
@@ -69,7 +69,7 @@ CREATE TABLE lab_event (
     event_id CHAR(7) PRIMARY KEY,
     section_code VARCHAR(20) NOT NULL REFERENCES section(section_code),
     course_code CHAR(8) NOT NULL REFERENCES course(course_code),
-    term_code VARCHAR(10) NOT NULL REFERENCES term(term_code)(term_code),
+    term_code VARCHAR(10) NOT NULL REFERENCES term(term_code),
     lab_number CHAR(2) NOT NULL REFERENCES lab_assignment(lab_number),
     start_datetime TIMESTAMP,
     end_datetime TIMESTAMP,
