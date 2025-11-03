@@ -44,7 +44,7 @@ CREATE TABLE term (
 
 );
 
-CREATE TABLE Section (
+CREATE TABLE section (
     section_code VARCHAR(20) PRIMARY KEY,
     course_code CHAR(8) NOT NULL REFERENCES course(course_code),
     term_code VARCHAR(10) REFERENCES term(term_code),
