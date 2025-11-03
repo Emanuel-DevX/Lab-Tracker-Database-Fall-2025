@@ -28,3 +28,4 @@ INSERT INTO set (set_code, campus) VALUES ('E', 'Downtown');
 INSERT INTO set (set_code, campus) VALUES ('F', 'Downtown');
 
 SELECT * FROM set;
+
