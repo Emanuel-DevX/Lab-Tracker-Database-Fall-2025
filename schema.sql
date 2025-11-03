@@ -1,19 +1,19 @@
 DROP SCHEMA IF EXISTS lab_tracker_group_16 CASCADE;
 CREATE SCHEMA lab_tracker_group_16;
-SET search_path TO lab_tracker_group_16;
+set search_path TO lab_tracker_group_16;
 
 --Drop tables before definition
 
-DROP TABLE IF EXISTS Course CASCADE;
-DROP TABLE IF EXISTS Set CASCADE;
-DROP TABLE IF EXISTS Student CASCADE;
-DROP TABLE IF EXISTS Term CASCADE;
+DROP TABLE IF EXISTS course CASCADE;
+DROP TABLE IF EXISTS set CASCADE;
+DROP TABLE IF EXISTS student CASCADE;
+DROP TABLE IF EXISTS term CASCADE;
 DROP TABLE IF EXISTS Section CASCADE;
 DROP TABLE IF EXISTS lab_Assignment CASCADE;
 DROP TABLE IF EXISTS lab_event CASCADE;
 
 
-CREATE TABLE Course (
+CREATE TABLE course (
     course_code CHAR(8) PRIMARY KEY,
     title VARCHAR(50) NOT NULL,
     credits INTEGER NOT NULL,
@@ -22,21 +22,21 @@ CREATE TABLE Course (
     CONSTRAINT course_credits_chk CHECK (credits > 0)
 );
 
-CREATE TABLE Set (
+CREATE TABLE set (
     set_code CHAR(1) PRIMARY KEY,
     campus VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Student (
+CREATE TABLE student (
     student_id CHAR(9) PRIMARY KEY,
-    set_code CHAR(1) REFERENCES Set NOT NULL,
+    set_code CHAR(1) REFERENCES set NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL
 
 );
 
-CREATE TABLE Term (
+CREATE TABLE term (
     term_code VARCHAR(10) PRIMARY KEY,
     name VARCHAR(20) NOT NULL,
     start_date DATE NOT NULL,
@@ -46,9 +46,9 @@ CREATE TABLE Term (
 
 CREATE TABLE Section (
     section_code VARCHAR(20) PRIMARY KEY,
-    course_code CHAR(8) NOT NULL REFERENCES Course(course_code),
-    term_code VARCHAR(10) REFERENCES Term(term_code),
-    set_code    CHAR(1) REFERENCES Set(set_code),
+    course_code CHAR(8) NOT NULL REFERENCES course(course_code),
+    term_code VARCHAR(10) REFERENCES term(term_code),
+    set_code    CHAR(1) REFERENCES set(set_code),
     type VARCHAR(10) CHECK (type IN ('Lab')),
     day_of_week VARCHAR(10),
     start_time TIME,
@@ -77,12 +77,12 @@ CREATE TABLE lab_event (
     location VARCHAR(50)
 );
 
-CREATE TABLE Progress (
+CREATE TABLE progress (
     progress_id              VARCHAR(20) PRIMARY KEY,
-    student_id               CHAR(9) NOT NULL REFERENCES Student(student_id),
-    event_id                 CHAR(7) NOT NULL REFERENCES Lab_Event(event_id),
+    student_id               CHAR(9) NOT NULL REFERENCES student(student_id),
+    event_id                 CHAR(7) NOT NULL REFERENCES lab_event(event_id),
     lab_number               CHAR(2) NOT NULL REFERENCES lab_assignment(lab_number),
-    status                   VARCHAR(20) CHECK (status IN ('Submitted', 'In Progress', 'Missing')),
+    status                   VARCHAR(20) CHECK (status IN ('Submitted', 'In progress', 'Missing')),
     prepared                 BOOLEAN,
     attendance               VARCHAR(20) CHECK (attendance IN ('Present', 'Absent', 'Late')),
     inlab_submitted_at       TIMESTAMP,
@@ -93,5 +93,5 @@ CREATE TABLE Progress (
     self_assessment          DECIMAL(4,2),
     late                     BOOLEAN,
 
-    CONSTRAINT student_event UNIQUE (student_id, event_id),
+    CONSTRAINT student_event UNIQUE (student_id, event_id)
 );
