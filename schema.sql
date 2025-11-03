@@ -44,7 +44,7 @@ CREATE TABLE set (
 CREATE TABLE student (
 
     student_id CHAR(20) PRIMARY KEY REFERENCES "user"(user_id) ON DELETE CASCADE,
-    set_code CHAR(1) NOT NULL REFERENCES set(set_code),
+    set_code CHAR(1) NOT NULL REFERENCES set(set_code)
 
 );
 

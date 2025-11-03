@@ -16,31 +16,32 @@ TRUNCATE TABLE
 CASCADE;
 
 -- Insert sample users
-INSERT INTO "user" (user_id, display_name, role, email) VALUES
-('u_instructor', 'Maryam Khezrzadeh', 'instructor', 'mkhezrzadeh@bcit.ca'),
-('u_ta1', 'Daniel Saavedra', 'ta', 'dsaavedra@bcit.ca'),
-('u_system', 'Lab Tracker System', 'system', 'noreply@labtracker.local');
+INSERT INTO "user" (user_id, first_name, last_name, role, email) VALUES
+('u_instructor', 'Maryam', 'Khezrzadeh', 'instructor', 'mkhezrzadeh@bcit.ca'),
+('u_ta1', 'Daniel', 'Saavedra', 'ta', 'dsaavedra@bcit.ca'),
+('u_system', 'Lab Tracker', 'System', 'system', 'noreply@labtracker.local');
 
 -- Insert user records for students (supertype of student)
-INSERT INTO "user" (user_id, display_name, role, email) VALUES
-('A001', 'Ava Nguyen', 'student', 'ava.nguyen@my.bcit.ca'),
-('A002', 'Noah Kim', 'student', 'noah.kim@my.bcit.ca'),
-('A003', 'Oliver Singh', 'student', 'oliver.singh@my.bcit.ca'),
-('B001', 'Maya Fischer', 'student', 'maya.fischer@my.bcit.ca'),
-('B002', 'Leo Park', 'student', 'leo.park@my.bcit.ca'),
-('B003', 'Zoé Martin', 'student', 'zoe.martin@my.bcit.ca'),
-('C001', 'Sofia Chen', 'student', 'sofia.chen@my.bcit.ca'),
-('C002', 'Arjun Patel', 'student', 'arjun.patel@my.bcit.ca'),
-('C003', 'Liam O''Reilly', 'student', 'liam.oreilly@my.bcit.ca'),
-('D001', 'Layla Haddad', 'student', 'layla.haddad@my.bcit.ca'),
-('D002', 'Ethan Wong', 'student', 'ethan.wong@my.bcit.ca'),
-('D003', 'Nora Iverson', 'student', 'nora.iverson@my.bcit.ca'),
-('E001', 'Diego Alvarez', 'student', 'diego.alvarez@my.bcit.ca'),
-('E002', 'Hana Yamamoto', 'student', 'hana.yamamoto@my.bcit.ca'),
-('E003', 'Farah Rahimi', 'student', 'farah.rahimi@my.bcit.ca'),
-('F001', 'Marco Russo', 'student', 'marco.russo@my.bcit.ca'),
-('F002', 'Amir Kazemi', 'student', 'amir.kazemi@my.bcit.ca'),
-('F003', 'Chloe Dubois', 'student', 'chloe.dubois@my.bcit.ca');
+INSERT INTO "user" (user_id, first_name, last_name, email, role) VALUES
+('A001', 'Ava', 'Nguyen', 'ava.nguyen@my.bcit.ca', 'student'),
+('A002', 'Noah', 'Kim', 'noah.kim@my.bcit.ca', 'student'),
+('A003', 'Oliver', 'Singh', 'oliver.singh@my.bcit.ca', 'student'),
+('B001', 'Maya', 'Fischer', 'maya.fischer@my.bcit.ca', 'student'),
+('B002', 'Leo', 'Park', 'leo.park@my.bcit.ca', 'student'),
+('B003', 'Zoé', 'Martin', 'zoe.martin@my.bcit.ca', 'student'),
+('C001', 'Sofia', 'Chen', 'sofia.chen@my.bcit.ca', 'student'),
+('C002', 'Arjun', 'Patel', 'arjun.patel@my.bcit.ca', 'student'),
+('C003', 'Liam', 'O''Reilly', 'liam.oreilly@my.bcit.ca', 'student'),
+('D001', 'Layla', 'Haddad', 'layla.haddad@my.bcit.ca', 'student'),
+('D002', 'Ethan', 'Wong', 'ethan.wong@my.bcit.ca', 'student'),
+('D003', 'Nora', 'Iverson', 'nora.iverson@my.bcit.ca', 'student'),
+('E001', 'Diego', 'Alvarez', 'diego.alvarez@my.bcit.ca', 'student'),
+('E002', 'Hana', 'Yamamoto', 'hana.yamamoto@my.bcit.ca', 'student'),
+('E003', 'Farah', 'Rahimi', 'farah.rahimi@my.bcit.ca', 'student'),
+('F001', 'Marco', 'Russo', 'marco.russo@my.bcit.ca', 'student'),
+('F002', 'Amir', 'Kazemi', 'amir.kazemi@my.bcit.ca', 'student'),
+('F003', 'Chloe', 'Dubois', 'chloe.dubois@my.bcit.ca', 'student');
+
 
 -- Insert available courses
 INSERT INTO course (course_code, title, credits) VALUES
@@ -61,26 +62,27 @@ INSERT INTO set(set_code, campus) VALUES
 ('E', 'Downtown'),
 ('F', 'Downtown');
 
--- Insert student records
-INSERT INTO student (student_id, set_code, first_name, last_name, email) VALUES
-('A001', 'A', 'Ava', 'Nguyen', 'ava.nguyen@my.bcit.ca'),
-('A002', 'A', 'Noah', 'Kim', 'noah.kim@my.bcit.ca'),
-('A003', 'A', 'Oliver', 'Singh', 'oliver.singh@my.bcit.ca'),
-('B001', 'B', 'Maya', 'Fischer', 'maya.fischer@my.bcit.ca'),
-('B002', 'B', 'Leo', 'Park', 'leo.park@my.bcit.ca'),
-('B003', 'B', 'Zoé', 'Martin', 'zoe.martin@my.bcit.ca'),
-('C001', 'C', 'Sofia', 'Chen', 'sofia.chen@my.bcit.ca'),
-('C002', 'C', 'Arjun', 'Patel', 'arjun.patel@my.bcit.ca'),
-('C003', 'C', 'Liam', 'O''Reilly', 'liam.oreilly@my.bcit.ca'),
-('D001', 'D', 'Layla', 'Haddad', 'layla.haddad@my.bcit.ca'),
-('D002', 'D', 'Ethan', 'Wong', 'ethan.wong@my.bcit.ca'),
-('D003', 'D', 'Nora', 'Iverson', 'nora.iverson@my.bcit.ca'),
-('E001', 'E', 'Diego', 'Alvarez', 'diego.alvarez@my.bcit.ca'),
-('E002', 'E', 'Hana', 'Yamamoto', 'hana.yamamoto@my.bcit.ca'),
-('E003', 'E', 'Farah', 'Rahimi', 'farah.rahimi@my.bcit.ca'),
-('F001', 'F', 'Marco', 'Russo', 'marco.russo@my.bcit.ca'),
-('F002', 'F', 'Amir', 'Kazemi', 'amir.kazemi@my.bcit.ca'),
-('F003', 'F', 'Chloe', 'Dubois', 'chloe.dubois@my.bcit.ca');
+-- Insert students (subtype of "user")
+INSERT INTO student (student_id, set_code) VALUES
+('A001', 'A'),
+('A002', 'A'),
+('A003', 'A'),
+('B001', 'B'),
+('B002', 'B'),
+('B003', 'B'),
+('C001', 'C'),
+('C002', 'C'),
+('C003', 'C'),
+('D001', 'D'),
+('D002', 'D'),
+('D003', 'D'),
+('E001', 'E'),
+('E002', 'E'),
+('E003', 'E'),
+('F001', 'F'),
+('F002', 'F'),
+('F003', 'F');
+
 
 -- Insert available sections
 INSERT INTO section 

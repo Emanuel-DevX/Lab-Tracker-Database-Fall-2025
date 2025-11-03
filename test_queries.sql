@@ -104,7 +104,8 @@ SELECT DISTINCT attendance FROM progress;
 
 -- Check duplicate student emails (should be unique)
 SELECT email, COUNT(*) 
-FROM student
+FROM student s
+JOIn "user" u ON u.user_id = s.student_id
 GROUP BY email
 HAVING COUNT(*) > 1;
 
@@ -130,9 +131,10 @@ WHERE instructor_assessment NOT BETWEEN 0 AND 10
 -------------------------------------------------------------------
 
 -- Example: Students with their course and lab event info
-SELECT s.student_id, s.first_name, s.last_name,
+SELECT s.student_id, u.first_name, u.last_name,
        c.course_code, e.event_id, e.start_datetime, p.status
 FROM student s
+JOIN "user" u ON u.user_id = s.student_id
 JOIN progress p ON s.student_id = p.student_id
 JOIN lab_event e ON p.event_id = e.event_id
 JOIN course c ON e.course_code = c.course_code
