@@ -15,21 +15,23 @@ TRUNCATE TABLE
     "user"
 CASCADE;
 
+-- Insert sample users
 INSERT INTO "user" (user_id, display_name, role, email) VALUES
 ('u_instructor', 'Maryam Khezrzadeh', 'instructor', 'mkhezrzadeh@bcit.ca'),
 ('u_ta1', 'Daniel Saavedra', 'ta', 'dsaavedra@bcit.ca'),
 ('u_system', 'Lab Tracker System', 'system', 'noreply@labtracker.local');
 
+-- Insert available courses
 INSERT INTO course (course_code, title, credits) VALUES
 ('COMP2714','Relational Database Systems',3);
 
-
+-- Insert terms
 INSERT INTO term (term_code, name, start_date, end_date) VALUES
 ('202510', 'Winter 2025', '2025-01-06', '2025-04-11'),
 ('202520', 'Spring/Summer 2025', '2025-04-28', '2025-08-08'),
 ('202530', 'Fall 2025', '2025-09-02', '2025-12-12');
 
-
+-- Insert available sets
 INSERT INTO set(set_code, campus) VALUES
 ('A', 'Burnaby'),
 ('B', 'Burnaby'),
@@ -59,6 +61,7 @@ INSERT INTO student (student_id, set_code, first_name, last_name, email) VALUES
 ('F002', 'F', 'Amir', 'Kazemi', 'amir.kazemi@my.bcit.ca'),
 ('F003', 'F', 'Chloe', 'Dubois', 'chloe.dubois@my.bcit.ca');
 
+-- Insert available sections
 INSERT INTO section 
 (section_code, course_code, term_code, set_code, type, day_of_week, start_time, end_time, location) VALUES
 ('L01', 'COMP2714', '202530', 'A', 'LAB', 'Mon', '09:30', '11:20', 'BBY-SW01-3460'),
@@ -68,7 +71,7 @@ INSERT INTO section
 ('L05', 'COMP2714', '202530', 'E', 'LAB', 'Wed', '13:30', '15:20', 'DTC-310'),
 ('L06', 'COMP2714', '202530', 'F', 'LAB', 'Thu', '18:30', '20:20', 'DTC-318');
 
-
+-- Insert lab assignments 
 INSERT INTO lab_assignment
 (assignment_id, course_code, term_code, lab_number, title) VALUES
 ('LAB01', 'COMP2714', '202530', '1', 'Environment Setup & Intro SQL'),
@@ -80,7 +83,7 @@ INSERT INTO lab_assignment
 ('LAB07', 'COMP2714', '202530', '7', 'SELECT & JOIN Practice'),
 ('LAB08', 'COMP2714', '202530', '8', 'Views & Indexes');
 
-
+-- Insert lab event details
 INSERT INTO lab_event (
     event_id, section_code, course_code, term_code, lab_number,
     start_datetime, end_datetime, due_datetime, location
@@ -104,6 +107,7 @@ INSERT INTO lab_event (
 ('L06-L02', 'L06', 'COMP2714', '202530', '2', '2025-09-18 18:30', '2025-09-18 20:20', '2025-09-22 09:00', 'DTC-318'),
 ('L06-L03', 'L06', 'COMP2714', '202530', '3', '2025-09-25 18:30', '2025-09-25 20:20', '2025-09-29 09:00', 'DTC-318');
 
+-- Insert student progress
 INSERT INTO progress (
     progress_id, student_id, event_id, lab_number, status, prepared, 
     attendance, inlab_submitted_at, inlab_submission_link, polished_submitted_at, 
@@ -147,7 +151,7 @@ INSERT INTO progress (
 ('F003-L06-L02','F003','L06-L02','2','Submitted',FALSE,'Present','2025-09-19 19:35','https://submit.bcit.ca/comp2714/inlab/F003-L06-L02.pdf','2025-09-21 20:35','https://submit.bcit.ca/comp2714/polished/F003-L06-L02.pdf',7.0,6.7,FALSE);
 
 
-
+-- Insert student progress change logs
 INSERT INTO progress_change_log (change_id, progress_id, changed_by, changed_at, field, old_value, new_value, reason) VALUES
 ('chg1', 'A001-L01-L01', 'u_instructor', '2025-09-09 12:10', 'instructor_assessment', '8.0', '8.5', 'Regraded after resubmission'),
 
