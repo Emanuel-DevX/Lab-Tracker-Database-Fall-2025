@@ -15,6 +15,13 @@ DROP TABLE IF EXISTS term CASCADE;
 DROP TABLE IF EXISTS course CASCADE;
 DROP TABLE IF EXISTS "user" CASCADE;
 
+CREATE TABLE "user"(
+    user_id VARCHAR(20) PRIMARY KEY,
+    display_name VARCHAR(50),
+    role VARCHAR(50) CHECK(role IN ('instructor', 'system', 'ta')),
+    email VARCHAR(50)
+
+);
 
 CREATE TABLE course (
     course_code CHAR(8) PRIMARY KEY,
@@ -52,7 +59,7 @@ CREATE TABLE section (
     course_code CHAR(8) NOT NULL REFERENCES course(course_code),
     term_code VARCHAR(10) REFERENCES term(term_code),
     set_code    CHAR(1) REFERENCES set(set_code),
-    type VARCHAR(10) CHECK (type IN ('Lab')),
+    type VARCHAR(10) CHECK (type IN ('LAB')),
     day_of_week VARCHAR(10),
     start_time TIME,
     end_time TIME,
@@ -102,7 +109,7 @@ CREATE TABLE progress (
 CREATE TABLE progress_change_log (
     change_id CHAR(5) PRIMARY KEY,          
     progress_id CHAR(20)  NOT NULL REFERENCES progress(progress_id),          
-    changed_by VARCHAR(50) NOT NULL,        
+    changed_by VARCHAR(20) NOT NULL REFERENCES "user"(user_id),        
     changed_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,        
     field VARCHAR(50) NOT NULL,             
     old_value VARCHAR(100),                 
@@ -110,10 +117,3 @@ CREATE TABLE progress_change_log (
     reason VARCHAR(255)                      
 );
 
-CREATE TABLE "user"(
-    user_id VARCHAR(20) PRIMARY KEY,
-    display_name VARCHAR(50),
-    role VARCHAR(50) CHECK(role IN ('instructor', 'system', 'ta')),
-    email VARCHAR(50)
-
-);
