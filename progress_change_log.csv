@@ -2,3 +2,25 @@ change_id,progress_id,changed_by,changed_at,field,old_value,new_value,reason
 chg1,A001-L01-L01,u_instructor,2025-09-09 12:10,instructor_assessment,8.0,8.5,Regraded after resubmission
 chg2,A003-L01-L02,u_ta1,2025-09-16 20:45,status,In Progress,Submitted,Student submitted during lab; TA marked as submitted
 chg3,B003-L02-L01,u_system,2025-09-23 23:59,late,False,True,Auto-flagged after set-specific due time
+chg04,A001-L01-L03,u_instructor,2025-09-24 14:00,instructor_assessment,,95.0,Initial grading
+chg05,A001-L01-L04,u_instructor,2025-10-01 10:00,instructor_assessment,,98.0,Excellent work
+chg06,A002-L01-L03,u_instructor,2025-09-30 09:00,late,False,True,Submitted after deadline
+chg07,A002-L01-L03,u_instructor,2025-09-30 09:15,instructor_assessment,,65.0,Late penalty applied
+chg08,B002-L02-L02,u_ta1,2025-09-20 10:00,status,In Progress,Submitted,Late submission accepted
+chg09,B002-L02-L03,u_ta1,2025-09-26 14:00,self_assessment,,75.0,Student self-evaluation
+chg10,B003-L02-L03,u_system,2025-10-02 00:00,late,False,True,Auto-flagged after deadline
+chg11,C001-L03-L03,u_instructor,2025-09-25 10:00,instructor_assessment,,93.0,Great improvement
+chg12,C002-L03-L02,u_ta1,2025-09-19 16:30,self_assessment,,65.0,Student self-evaluation
+chg13,C002-L03-L03,u_instructor,2025-09-27 11:00,instructor_assessment,,40.0,Absent from lab
+chg14,C003-L03-L03,u_instructor,2025-10-01 08:00,late,False,True,Submitted past deadline
+chg15,D001-L04-L03,u_instructor,2025-09-26 09:00,instructor_assessment,,96.0,Outstanding work
+chg16,D002-L04-L03,u_ta1,2025-09-25 14:00,status,In Progress,Submitted,Completed
+chg17,E001-L05-L03,u_instructor,2025-09-26 15:00,instructor_assessment,,94.0,Excellent submission
+chg18,E003-L05-L03,u_system,2025-10-03 00:00,late,False,True,Auto-flagged late
+chg19,F001-L06-L03,u_instructor,2025-09-27 10:00,instructor_assessment,,90.0,Good work
+chg20,F001-L06-L04,u_instructor,2025-10-04 11:00,instructor_assessment,,92.0,Consistent excellence
+chg21,PRG1001,u_instructor,2025-09-09 14:00,instructor_assessment,80.0,85.0,Regraded after review
+chg22,A001-L01-L02,u_ta1,2025-09-17 14:00,self_assessment,65.0,67.0,Updated self-assessment
+chg23,B001-L02-L04,u_instructor,2025-10-01 09:00,instructor_assessment,,91.0,Initial assessment
+chg24,C001-L03-L04,u_system,2025-09-30 19:15,status,Missing,In Progress,Student started work
+chg25,D002-L04-L02,u_instructor,2025-09-18 10:00,status,In Progress,Submitted,Marked as complete
