@@ -35,3 +35,27 @@ F002-L06-L01,F002,L06-L01,1,Submitted,True,Present,2025-09-11 19:45,https://subm
 F002-L06-L02,F002,L06-L02,2,In Progress,True,Present,2025-09-18 19:40,https://submit.bcit.ca/comp2714/inlab/F002-L06-L02.pdf,,,,,False
 F003-L06-L01,F003,L06-L01,1,Submitted,True,Present,2025-09-11 19:45,https://submit.bcit.ca/comp2714/inlab/F003-L06-L01.pdf,2025-09-12 21:45,https://submit.bcit.ca/comp2714/polished/F003-L06-L01.pdf,8.5,8.2,False
 F003-L06-L02,F003,L06-L02,2,Submitted,False,Present,2025-09-18 19:35,https://submit.bcit.ca/comp2714/inlab/F003-L06-L02.pdf,2025-09-20 20:35,https://submit.bcit.ca/comp2714/polished/F003-L06-L02.pdf,7.0,6.7,False
+A001-L01-L03,A001,L01-L03,3,Submitted,True,Present,2025-09-22 10:45,https://submit.bcit.ca/comp2714/inlab/A001-L01-L03.pdf,2025-09-23 12:45,https://submit.bcit.ca/comp2714/polished/A001-L01-L03.pdf,95.0,92.0,False
+A001-L01-L04,A001,L01-L04,4,Submitted,True,Present,2025-09-29 10:30,https://submit.bcit.ca/comp2714/inlab/A001-L01-L04.pdf,2025-09-30 14:00,https://submit.bcit.ca/comp2714/polished/A001-L01-L04.pdf,98.0,95.0,False
+A001-L01-L05,A001,L01-L05,5,Submitted,True,Present,2025-10-06 10:20,https://submit.bcit.ca/comp2714/inlab/A001-L01-L05.pdf,2025-10-07 16:00,https://submit.bcit.ca/comp2714/polished/A001-L01-L05.pdf,92.0,90.0,False
+A002-L01-L03,A002,L01-L03,3,Submitted,False,Late,2025-09-22 11:00,https://submit.bcit.ca/comp2714/inlab/A002-L01-L03.pdf,2025-09-29 23:59,https://submit.bcit.ca/comp2714/polished/A002-L01-L03.pdf,65.0,70.0,True
+A003-L01-L03,A003,L01-L03,3,Missing,False,Absent,,,,,,False
+B001-L02-L03,B001,L02-L03,3,Submitted,True,Present,2025-09-22 14:45,https://submit.bcit.ca/comp2714/inlab/B001-L02-L03.pdf,2025-09-23 16:45,https://submit.bcit.ca/comp2714/polished/B001-L02-L03.pdf,88.0,85.0,False
+B001-L02-L04,B001,L02-L04,4,Submitted,True,Present,2025-09-29 14:30,https://submit.bcit.ca/comp2714/inlab/B001-L02-L04.pdf,2025-09-30 16:00,https://submit.bcit.ca/comp2714/polished/B001-L02-L04.pdf,91.0,89.0,False
+B002-L02-L03,B002,L02-L03,3,Submitted,True,Present,2025-09-22 14:50,https://submit.bcit.ca/comp2714/inlab/B002-L02-L03.pdf,2025-09-25 18:00,https://submit.bcit.ca/comp2714/polished/B002-L02-L03.pdf,,75.0,False
+B003-L02-L03,B003,L02-L03,3,Submitted,False,Present,2025-09-22 15:00,https://submit.bcit.ca/comp2714/inlab/B003-L02-L03.pdf,2025-10-01 23:59,https://submit.bcit.ca/comp2714/polished/B003-L02-L03.pdf,58.0,60.0,True
+C001-L03-L03,C001,L03-L03,3,Submitted,True,Present,2025-09-23 19:00,https://submit.bcit.ca/comp2714/inlab/C001-L03-L03.pdf,2025-09-24 20:00,https://submit.bcit.ca/comp2714/polished/C001-L03-L03.pdf,93.0,91.0,False
+C001-L03-L04,C001,L03-L04,4,In Progress,True,Present,2025-09-30 19:15,https://submit.bcit.ca/comp2714/inlab/C001-L03-L04.pdf,,,,,False
+C002-L03-L03,C002,L03-L03,3,Submitted,True,Absent,,,2025-09-26 20:00,https://submit.bcit.ca/comp2714/polished/C002-L03-L03.pdf,40.0,,False
+C003-L03-L03,C003,L03-L03,3,Submitted,True,Late,2025-09-23 20:00,https://submit.bcit.ca/comp2714/inlab/C003-L03-L03.pdf,2025-09-30 23:59,https://submit.bcit.ca/comp2714/polished/C003-L03-L03.pdf,72.0,70.0,True
+D001-L04-L03,D001,L04-L03,3,Submitted,True,Present,2025-09-24 10:45,https://submit.bcit.ca/comp2714/inlab/D001-L04-L03.pdf,2025-09-25 12:45,https://submit.bcit.ca/comp2714/polished/D001-L04-L03.pdf,96.0,94.0,False
+D002-L04-L03,D002,L04-L03,3,Submitted,True,Present,2025-09-24 10:50,https://submit.bcit.ca/comp2714/inlab/D002-L04-L03.pdf,,,,False
+D003-L04-L03,D003,L04-L03,3,Missing,False,Absent,,,,0.0,0.0,False
+E001-L05-L03,E001,L05-L03,3,Submitted,True,Present,2025-09-24 14:45,https://submit.bcit.ca/comp2714/inlab/E001-L05-L03.pdf,2025-09-25 16:45,https://submit.bcit.ca/comp2714/polished/E001-L05-L03.pdf,94.0,92.0,False
+E002-L05-L03,E002,L05-L03,3,In Progress,False,Late,2025-09-24 15:00,https://submit.bcit.ca/comp2714/inlab/E002-L05-L03.pdf,,,,,False
+E003-L05-L03,E003,L05-L03,3,Submitted,True,Present,2025-09-24 14:50,https://submit.bcit.ca/comp2714/inlab/E003-L05-L03.pdf,2025-10-02 23:59,https://submit.bcit.ca/comp2714/polished/E003-L05-L03.pdf,55.0,58.0,True
+F001-L06-L03,F001,L06-L03,3,Submitted,True,Present,2025-09-25 19:45,https://submit.bcit.ca/comp2714/inlab/F001-L06-L03.pdf,2025-09-26 21:45,https://submit.bcit.ca/comp2714/polished/F001-L06-L03.pdf,90.0,88.0,False
+F001-L06-L04,F001,L06-L04,4,Submitted,True,Present,2025-10-02 19:30,https://submit.bcit.ca/comp2714/inlab/F001-L06-L04.pdf,2025-10-03 21:00,https://submit.bcit.ca/comp2714/polished/F001-L06-L04.pdf,92.0,90.0,False
+F002-L06-L03,F002,L06-L03,3,Submitted,False,Present,2025-09-25 19:50,https://submit.bcit.ca/comp2714/inlab/F002-L06-L03.pdf,,,78.0,False
+F003-L06-L03,F003,L06-L03,3,Missing,False,Absent,,,,,,False
+PRG1001,A001,L01-L01,1,Submitted,True,Present,2025-09-08 10:45,https://submit.bcit.ca/comp2714/inlab/A001-L01-L01.pdf,2025-09-09 12:45,https://submit.bcit.ca/comp2714/polished/A001-L01-L01.pdf,85.0,82.0,False
