@@ -38,7 +38,7 @@ CREATE TABLE term (
     term_code                   VARCHAR(10) PRIMARY KEY,
     name                        VARCHAR(20) NOT NULL,
     start_date                  DATE NOT NULL,
-    end_date                    DATE NOT NULL,
+    end_date                    DATE NOT NULL
 
     CONSTRAINT term_dates_chk CHECK (end_date > start_date)
 );
