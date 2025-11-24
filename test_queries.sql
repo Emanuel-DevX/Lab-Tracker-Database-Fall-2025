@@ -19,7 +19,7 @@ SELECT * FROM section LIMIT 5;
 SELECT * FROM lab_assignment LIMIT 5;
 SELECT * FROM lab_event LIMIT 5;
 SELECT * FROM progress LIMIT 5;
-SELECT * FROM change_log LIMIT 5;
+SELECT * FROM progress_change_log LIMIT 5;
 SELECT * FROM "user" LIMIT 5;
 
 -------------------------------------------------------------------
@@ -68,7 +68,7 @@ WHERE s.student_id IS NULL OR e.event_id IS NULL OR la.lab_number IS NULL;
 -------------------------------------------------------------------
 
 SELECT c.change_id, c.progress_id
-FROM change_log c
+FROM progress_change_log c
 LEFT JOIN progress p ON c.progress_id = p.progress_id
 WHERE p.progress_id IS NULL;
 
@@ -144,7 +144,7 @@ ORDER BY s.student_id, e.event_id;
 SELECT p.progress_id, COUNT(c.change_id) AS change_count,
        STRING_AGG(c.field || ' (' || c.old_value || '→' || c.new_value || ')', '; ') AS changes
 FROM progress p
-LEFT JOIN change_log c ON p.progress_id = c.progress_id
+LEFT JOIN progress_change_log c ON p.progress_id = c.progress_id
 GROUP BY p.progress_id
 ORDER BY change_count DESC;
 

@@ -174,7 +174,7 @@ INSERT INTO progress (
 ('F003-L06-L02','F003','L06-L02','2','Submitted',FALSE,'Present','2025-09-19 19:35','https://submit.bcit.ca/comp2714/inlab/F003-L06-L02.pdf','2025-09-21 20:35','https://submit.bcit.ca/comp2714/polished/F003-L06-L02.pdf',7.0,6.7,FALSE);
 
 -- Insert student progress change logs
-INSERT INTO change_log (change_id, progress_id, changed_by, changed_at, field, old_value, new_value, reason) VALUES
+INSERT INTO progress_change_log (change_id, progress_id, changed_by, changed_at, field, old_value, new_value, reason) VALUES
 ('chg1', 'A001-L01-L01', 'u_instructor', '2025-09-09 12:10', 'instructor_assessment', '8.0', '8.5', 'Regraded after resubmission'),
 ('chg2', 'A003-L01-L02', 'u_ta1', '2025-09-16 20:45', 'status', 'In progress', 'Submitted', 'Student submitted during lab; TA marked as submitted'),
 ('chg3', 'B003-L02-L01', 'u_system', '2025-09-23 23:59', 'late', 'False', 'True', 'Auto-flagged after set-specific due time');

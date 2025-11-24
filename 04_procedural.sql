@@ -11,7 +11,23 @@ SET search_path TO lab_tracker_group_16;
 -- Spec table name: change_log
 -- Our schema:
 --   - progress.progress_id is VARCHAR(20)
+--   - we already have progress_change_log; we LEAVE IT ALONE
+--   - new change_log is specifically for this milestone trigger
 -------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS change_log (
+    change_id SERIAL PRIMARY KEY,
+    progress_id VARCHAR(20) NOT NULL,
+    changed_by TEXT,
+    action TEXT NOT NULL,  -- e.g. 'INSERT', 'UPDATE'
+    old_instructor_assessment NUMERIC,
+    new_instructor_assessment NUMERIC,
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_change_progress
+        FOREIGN KEY (progress_id)
+        REFERENCES progress(progress_id)
+);
+
 -------------------------------------------------------------------
 -- Trigger function: fn_log_progress_change
 -- Behavior:
