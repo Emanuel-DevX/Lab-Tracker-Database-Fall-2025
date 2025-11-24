@@ -3,7 +3,7 @@ CREATE SCHEMA lab_tracker_group_16;
 set search_path TO lab_tracker_group_16;
 
 -- Drop tables before definition
-DROP TABLE IF EXISTS change_log CASCADE;
+DROP TABLE IF EXISTS progress_change_log CASCADE;
 DROP TABLE IF EXISTS progress CASCADE;
 DROP TABLE IF EXISTS lab_event CASCADE;
 DROP TABLE IF EXISTS lab_assignment CASCADE;
@@ -139,7 +139,7 @@ CREATE TABLE progress (
     CONSTRAINT progress_submission_order_chk CHECK (polished_submitted_at IS NULL OR inlab_submitted_at IS NULL OR polished_submitted_at >= inlab_submitted_at)
 );
 
-CREATE TABLE change_log (
+CREATE TABLE progress_change_log (
     change_id                   CHAR(5) PRIMARY KEY,
     progress_id                 VARCHAR(20) NOT NULL,
     changed_by                  VARCHAR(20) NOT NULL,
