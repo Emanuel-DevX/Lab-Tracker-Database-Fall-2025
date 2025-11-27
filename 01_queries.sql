@@ -1,7 +1,7 @@
 -- =============================================
 -- Author: Group 16
 -- Create date: 2025-11-20
--- Description: Part 1 - Core Reporting Queries
+-- Description: Part 1 - Guided Core Queries
 -- =============================================
 
 SET search_path TO lab_tracker_group_16;
