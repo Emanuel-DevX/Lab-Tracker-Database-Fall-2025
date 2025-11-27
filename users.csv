@@ -1,4 +1,4 @@
-user_id,display_name,role,email
-u_instructor,Maryam Khezrzadeh,instructor,mkhezrzadeh@bcit.ca
-u_ta1,Daniel Saavedra,ta,dsaavedra@bcit.ca
-u_system,Lab Tracker System,system,noreply@labtracker.local
+user_id,first_name,last_name,email,role
+u_instructor,Maryam,Khezrzadeh,mkhezrzadeh@bcit.ca,instructor
+u_ta1,Daniel,Saavedra,dsaavedra@bcit.ca,ta
+u_system,Lab Tracker,System,noreply@labtracker.local,system

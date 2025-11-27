@@ -56,6 +56,19 @@ CREATE TABLE student (
     FOREIGN KEY (set_code) REFERENCES set(set_code)
 );
 
+CREATE TABLE student (
+    student_id                  CHAR(20)    PRIMARY KEY,
+    set_code                    CHAR(1)     NOT NULL,
+    first_name                  VARCHAR(50) NOT NULL,
+    last_name                   VARCHAR(50) NOT NULL,
+    email                       VARCHAR(50) NOT NULL,
+
+    FOREIGN KEY (set_code) REFERENCES set(set_code),
+
+    CONSTRAINT student_email_unq
+        UNIQUE (email)
+);
+
 CREATE TABLE section (
     section_code                VARCHAR(20) PRIMARY KEY,
     course_code                 CHAR(8) NOT NULL REFERENCES course(course_code),
