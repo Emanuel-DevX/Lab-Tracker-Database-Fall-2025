@@ -126,6 +126,14 @@ WHERE instructor_assessment NOT BETWEEN 0 AND 100
 
 -- Expect: 0 rows
 
+--Test to insert a non-existent student
+
+--INSERT INTO progress(progress_id, student_id, event_id, lab_number)
+--VALUES ('A001-L01-L03', '123456789', 'L01-L01', '1');
+
+-- ERROR:  insert or update on table "progress" violates foreign key constraint "progress_student_id_fkey"
+--Key (student_id)=(123456789) is not present in table "student".
+
 -------------------------------------------------------------------
 -- 8. Join examples (verification of relationships)
 -------------------------------------------------------------------
@@ -155,10 +163,3 @@ ORDER BY change_count DESC;
 -- Verify schema re-runs without duplicate errors
 -- Expected: No conflicts when you DROP + CREATE schema again
 SELECT 'Re-run schema successfully to confirm idempotency' AS message;
-
-
---Test to insert a non-existent student
---INSERT INTO progress(progress_id, student_id, event_id, lab_number)
---VALUES ('A001-L01-L03', '123456789', 'L01-L01', '1');
--- ERROR:  insert or update on table "progress" violates foreign key constraint "progress_student_id_fkey"
---Key (student_id)=(123456789) is not present in table "student".
