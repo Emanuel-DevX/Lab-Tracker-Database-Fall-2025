@@ -1,22 +1,14 @@
--------------------------------------------------------------------
--- 03_access_control.sql
--- Lab Tracker Group 16 – Access Control (Part 3)
---
--- NOTE:
---   On the shared BCIT Postgres server, CREATE ROLE / CREATE USER
---   may fail with "permission denied". Keep these statements anyway.
--------------------------------------------------------------------
+-- =============================================
+-- Author: Group 16
+-- Create date: 2025-11-20
+-- Description: Part 3 – Access Control
+-- =============================================
 
 SET search_path TO lab_tracker_group_16;
 
-
 -------------------------------------------------------------------
--- Create TA role if it does not already exist
+-- Create a TA role
 -------------------------------------------------------------------
-
--- DROP ROLE IF EXISTS ta_role;
-
--- CREATE ROLE ta_role;
 
 DO $$
 BEGIN
@@ -28,28 +20,30 @@ BEGIN
 END;
 $$;
 
-
 -------------------------------------------------------------------
--- Grant SELECT on reporting views to TA role
+-- Grant SELECT ON v_ta_progress_summary, v_section_overview TO ta_role;
 -------------------------------------------------------------------
 
 GRANT SELECT ON v_ta_progress_summary TO ta_role;
-GRANT SELECT ON v_section_overview    TO ta_role;
+GRANT SELECT ON v_section_overview TO ta_role;
 
 -------------------------------------------------------------------
--- Sample TA user (may fail on shared server)
+-- Create user ta_demo with password 'ta_demo123' (must be allowed on server)
 -------------------------------------------------------------------
 
--- These lines may error if you cannot create users; that is expected.
 DO $$
 BEGIN
     BEGIN
         CREATE USER ta_demo WITH PASSWORD 'ta_demo123';
     EXCEPTION WHEN duplicate_object THEN
-        -- user already exists, ignore
+        -- if user already exists, ignore
         NULL;
     END;
 END;
 $$;
+
+-------------------------------------------------------------------
+-- Grant ta_role to ta_demo;
+-------------------------------------------------------------------
 
 GRANT ta_role TO ta_demo;
