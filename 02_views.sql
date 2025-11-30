@@ -53,7 +53,7 @@ SELECT
     sec.course_code,
     sec.section_code section_id,
     COUNT(DISTINCT le.event_id) total_events,
-    AVG(p.instructor_assessment) avg_instructor_assessment
+    ROUND(AVG(p.instructor_assessment), 2) avg_instructor_assessment
 FROM section sec
 JOIN term t
 ON t.term_code = sec.term_code

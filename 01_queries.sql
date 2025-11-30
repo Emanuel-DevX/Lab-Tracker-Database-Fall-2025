@@ -24,7 +24,7 @@ JOIN lab_assignment la
 ON la.lab_number  = le.lab_number
 AND la.course_code = le.course_code
 AND la.term_code   = le.term_code
-WHERE le.term_code = '202530'
+WHERE le.term_code = '202530';
 
 -------------------------------------------------------------------
 -- 2. Student Participation Summary
@@ -42,7 +42,7 @@ ON u.user_id = s.student_id
 LEFT JOIN progress p
 ON p.student_id = s.student_id
 WHERE p.attendance = 'Present'
-GROUP BY s.student_id, u.first_name, u.last_name
+GROUP BY s.student_id, u.first_name, u.last_name;
 
 -------------------------------------------------------------------
 -- 3. Late Submissions
@@ -69,7 +69,7 @@ GROUP BY
     u.first_name, u.last_name,
     s.set_code,
     le.section_code
-HAVING COUNT(*) > 0
+HAVING COUNT(*) > 0;
 
 -------------------------------------------------------------------
 -- 4. Instructor Assessment Report
@@ -88,7 +88,7 @@ ON le.section_code = s.section_code
 LEFT JOIN progress p
 ON p.event_id = le.event_id
 GROUP BY s.section_code, c.course_code
-ORDER BY s.section_code
+ORDER BY s.section_code;
 
 -------------------------------------------------------------------
 -- 5. Unassessed Progress
@@ -117,7 +117,7 @@ ON la.lab_number  = p.lab_number
 AND la.course_code = le.course_code
 AND la.term_code   = le.term_code
 WHERE p.instructor_assessment IS NULL
-OR p.self_assessment IS NULL
+OR p.self_assessment IS NULL;
 
 -------------------------------------------------------------------
 -- 6. Top Performers

@@ -108,7 +108,7 @@ INSERT INTO progress (
     status, prepared, attendance, instructor_assessment
 )
 VALUES (
-    'TEST-PROG-01', 'A001', 'L01-L01', '1',
+    'TEST-PROG-01', 'A001', 'L06-L01', '1',
     'Submitted', TRUE, 'Present', 7.5
 );
 
@@ -120,8 +120,8 @@ SELECT * FROM change_log
 WHERE progress_id = 'TEST-PROG-01'
 ORDER BY changed_at;
 
-DELETE FROM progress    WHERE progress_id = 'TEST-PROG-01';
 DELETE FROM change_log  WHERE progress_id = 'TEST-PROG-01';
+DELETE FROM progress    WHERE progress_id = 'TEST-PROG-01';
 
 -------------------------------------------------------------------
 -- 4B. Stored Function – Create Lab Event and Precreate Progress

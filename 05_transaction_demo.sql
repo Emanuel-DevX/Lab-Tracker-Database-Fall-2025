@@ -63,7 +63,7 @@ VALUES (
 ROLLBACK;
 
 -------------------------------------------------------------------
--- Verification (should return 0 rows)
+-- Verification (Run after ROLLBACK; should return 0 rows)
 -------------------------------------------------------------------
 
 SELECT *
